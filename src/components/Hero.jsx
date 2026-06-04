@@ -3,7 +3,6 @@ function Hero() {
     <section className="hero">
 
       <div className="container">
-
         <span className="hero-tag">
           DGCA Compliant & Certified
         </span>

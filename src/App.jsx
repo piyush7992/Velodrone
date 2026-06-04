@@ -1,26 +1,36 @@
 import Contact from "./components/Contact";
-import FAQ from "./components/Faq";
-import Industries from "./components/Industries";
 import Navbar from "./components/Navbar";
-import Process from "./components/Process";
-import Services from "./components/Services";
-import Testimonials from "./components/Testimonials";
-import WhyChooseUs from "./components/Whychooseus";
+// Services will be lazy-loaded below
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
+import { Suspense, lazy } from "react";
+
+const FAQ = lazy(() => import("./components/Faq"));
+const Industries = lazy(() => import("./components/Industries"));
+const Process = lazy(() => import("./components/Process"));
+const Testimonials = lazy(() => import("./components/Testimonials"));
+const WhyChooseUs = lazy(() => import("./components/Whychooseus"));
+const LazyServices = lazy(() => import("./components/Services"));
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <a className="skip-link" href="#main">Skip to main content</a>
       <Hero />
-      <Services />
-      <WhyChooseUs />
-      <Industries />
-      <Process />
-      <Testimonials />
-      <FAQ />
-      <Contact />
+      <main id="main">
+        <Suspense fallback={<div>Loading services...</div>}>
+          <LazyServices />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <WhyChooseUs />
+          <Industries />
+          <Process />
+          <Testimonials />
+          <FAQ />
+        </Suspense>
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

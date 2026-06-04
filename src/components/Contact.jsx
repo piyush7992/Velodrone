@@ -103,7 +103,10 @@ function Contact() {
               }
             />
 
+            <label htmlFor="service-select" className="sr-only">Service</label>
             <select
+              id="service-select"
+              aria-label="Service"
               value={formData.service}
               onChange={(e) =>
                 setFormData({
@@ -113,11 +116,11 @@ function Contact() {
               }
             >
               <option value="">Select Service</option>
-              <option>Agriculture</option>
-              <option>Drone Mapping</option>
-              <option>Inspection</option>
-              <option>Surveillance</option>
-              <option>Pilot Training</option>
+              <option value="agriculture">Agriculture</option>
+              <option value="mapping">Drone Mapping</option>
+              <option value="inspection">Inspection</option>
+              <option value="surveillance">Surveillance</option>
+              <option value="training">Pilot Training</option>
             </select>
 
             <textarea
