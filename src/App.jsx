@@ -1,9 +1,14 @@
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
-// Services will be lazy-loaded below
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
+import HomeContent from "./components/HomeContent";
+import Products from "./pages/Products";
+import SurveyDrone from "./pages/SurveyDrone";
+import CounterDrone from "./pages/CounterDrone";
+import SurveillanceDrone from "./pages/SurveillanceDrone";
 import { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const FAQ = lazy(() => import("./components/Faq"));
 const Industries = lazy(() => import("./components/Industries"));
@@ -14,25 +19,44 @@ const LazyServices = lazy(() => import("./components/Services"));
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <a className="skip-link" href="#main">Skip to main content</a>
-      <Hero />
-      <main id="main">
-        <Suspense fallback={<div>Loading services...</div>}>
-          <LazyServices />
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          <WhyChooseUs />
-          <Industries />
-          <Process />
-          <Testimonials />
-          <FAQ />
-        </Suspense>
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <a className="skip-link" href="#main">Skip to main content</a>
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <main id="main">
+                  <HomeContent />
+                  <Suspense fallback={<div>Loading services...</div>}>
+                    <LazyServices />
+                  </Suspense>
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <WhyChooseUs />
+                    <Industries />
+                    <Process />
+                    <Testimonials />
+                    <FAQ />
+                  </Suspense>
+                  <Contact />
+                </main>
+              </>
+            }
+          />
+
+          <Route path="/products" element={<Products />} />
+          <Route path="/survey-drone" element={<SurveyDrone />} />
+          <Route path="/counter-drone" element={<CounterDrone />} />
+          <Route path="/surveillance-drone" element={<SurveillanceDrone />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

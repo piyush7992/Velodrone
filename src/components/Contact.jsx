@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../Services.css";
 
 function Contact() {
@@ -10,6 +10,24 @@ function Contact() {
     service: "",
     message: ""
   });
+
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const service = params.get("service") || "";
+      const demo = params.get("demo");
+
+      if (service || demo) {
+        setFormData((f) => ({
+          ...f,
+          service: service,
+          message: demo ? "Requesting a live demo. Please contact me." : f.message
+        }));
+      }
+    } catch (e) {
+      // ignore in non-browser environments
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -5,6 +5,7 @@ function Navbar() {
         <h2>Velodrone</h2>
 
         <ul>
+          <li><a href="/products">Products</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#industries">Industries</a></li>
           <li><a href="#about">Why Us</a></li>

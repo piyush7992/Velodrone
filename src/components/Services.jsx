@@ -1,24 +1,47 @@
 import "../Services.css";
 const services = [
   {
+    slug: "survey-drone",
+    title: "Survey Drone",
+    icon: "🗺️",
+    desc: "High-accuracy survey and mapping platform designed for geospatial projects.",
+    detectionRange: "N/A",
+    payloadCapacity: "2–5 kg",
+    operatingAltitude: "Up to 500 m AGL",
+    endurance: "45–90 minutes",
+    useCases: ["Topographic surveys", "Construction monitoring", "Mining surveys"]
+  },
+  {
+    slug: "counter-drone",
+    title: "Counter Drone System",
+    icon: "🛡️",
+    desc: "Integrated C-UAS suite — detection, classification and response for sensitive sites.",
+    detectionRange: "Up to 5 km (radar + RF fusion)",
+    payloadCapacity: "Platform-dependent",
+    operatingAltitude: "Ground-based sensors; air response systems up to 300 m",
+    endurance: "N/A (sensor network)",
+    useCases: ["Critical infrastructure protection", "Event security", "Military perimeters"]
+  },
+  {
+    slug: "surveillance-drone",
+    title: "Surveillance Drone",
+    icon: "📡",
+    desc: "Persistent ISR platform optimized for long-endurance observation and high-quality EO/IR sensors.",
+    detectionRange: "Visual detection depends on payload; EO/IR optimized",
+    payloadCapacity: "5–12 kg",
+    operatingAltitude: "Up to 1000 m AGL",
+    endurance: "2–8 hours",
+    useCases: ["Border surveillance", "Maritime patrol", "Critical asset monitoring"]
+  },
+  {
     title: "Precision Agriculture",
     icon: "🌾",
     desc: "Crop health monitoring, pesticide spraying, and yield optimization."
   },
   {
-    title: "Aerial Mapping",
-    icon: "🗺️",
-    desc: "High-accuracy 3D mapping and land surveying solutions."
-  },
-  {
     title: "Industrial Inspection",
     icon: "🔍",
     desc: "Safe inspection of power lines, pipelines, and infrastructure."
-  },
-  {
-    title: "Surveillance",
-    icon: "🛡️",
-    desc: "Real-time aerial monitoring for security and events."
   },
   {
     title: "Pilot Training",
@@ -52,9 +75,43 @@ function Services() {
 
               <p>{item.desc}</p>
 
-              <button className="service-btn">
-                Learn More →
-              </button>
+              {item.payloadCapacity && (
+                <ul className="spec-list">
+                  {item.detectionRange && (
+                    <li>
+                      <strong>Detection range:</strong> {item.detectionRange}
+                    </li>
+                  )}
+                  {item.payloadCapacity && (
+                    <li>
+                      <strong>Payload capacity:</strong> {item.payloadCapacity}
+                    </li>
+                  )}
+                  {item.operatingAltitude && (
+                    <li>
+                      <strong>Operating altitude:</strong> {item.operatingAltitude}
+                    </li>
+                  )}
+                  {item.endurance && (
+                    <li>
+                      <strong>Endurance:</strong> {item.endurance}
+                    </li>
+                  )}
+                </ul>
+              )}
+
+              <div className="service-actions">
+                <a className="service-btn" href={item.slug ? `/${item.slug}` : '#'}>
+                  Learn More →
+                </a>
+
+                <a
+                  className="spec-btn"
+                  href={`/contact?service=${item.slug || encodeURIComponent(item.title)}`}
+                >
+                  Request Specifications
+                </a>
+              </div>
             </div>
           ))}
         </div>
