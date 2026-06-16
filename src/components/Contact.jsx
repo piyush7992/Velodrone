@@ -1,33 +1,31 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../Services.css";
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: ""
-  });
-
-  useEffect(() => {
+  const [formData, setFormData] = useState(() => {
     try {
       const params = new URLSearchParams(window.location.search);
       const service = params.get("service") || "";
       const demo = params.get("demo");
 
-      if (service || demo) {
-        setFormData((f) => ({
-          ...f,
-          service: service,
-          message: demo ? "Requesting a live demo. Please contact me." : f.message
-        }));
-      }
-    } catch (e) {
-      // ignore in non-browser environments
+      return {
+        name: "",
+        email: "",
+        phone: "",
+        service: service,
+        message: demo ? "Requesting a live demo. Please contact me." : ""
+      };
+    } catch {
+      return {
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: ""
+      };
     }
-  }, []);
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();

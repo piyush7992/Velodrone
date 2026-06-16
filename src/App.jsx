@@ -8,7 +8,7 @@ import SurveyDrone from "./pages/SurveyDrone";
 import CounterDrone from "./pages/CounterDrone";
 import SurveillanceDrone from "./pages/SurveillanceDrone";
 import { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 const FAQ = lazy(() => import("./components/Faq"));
 const Industries = lazy(() => import("./components/Industries"));
@@ -46,6 +46,15 @@ function App() {
                 </main>
               </>
             }
+          />
+          {/* Support direct visits to /index.html or /index served by static servers */}
+          <Route
+            path="/index.html"
+            element={<Navigate to="/" replace />}
+          />
+          <Route
+            path="/index"
+            element={<Navigate to="/" replace />}
           />
 
           <Route path="/products" element={<Products />} />
