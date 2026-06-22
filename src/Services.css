@@ -148,6 +148,177 @@
   font-size: 1.1rem;
 }
 
+/* Case Studies */
+.case-studies {
+  padding: 60px 20px;
+  background: #f8fbfd;
+  color: #07121a;
+}
+
+.case-studies .service-card {
+  text-align: left;
+  min-height: auto;
+  padding: 28px;
+}
+
+.case-studies .service-card h3 {
+  margin-bottom: 10px;
+}
+
+.case-studies .spec-list li {
+  color: #23303a;
+}
+
+/* Case studies grid/cards (matches src/components/CaseStudies.jsx) */
+.case-studies .case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.case-studies .case-card {
+  background: #ffffff;
+  border: 1px solid rgba(3, 7, 12, 0.06);
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(10, 20, 30, 0.04);
+}
+
+.case-studies .case-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.case-studies .case-card p {
+  color: #23303a;
+  line-height: 1.6;
+}
+
+.case-studies .case-card ul {
+  margin: 10px 0 12px;
+  padding-left: 20px;
+}
+
+.case-studies .case-card .tech {
+  margin-top: 8px;
+  color: #1b2933;
+  font-weight: 600;
+}
+
+/* Enhanced styles */
+.case-studies .case-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.case-studies .case-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(3, 10, 18, 0.12);
+}
+
+.case-studies .card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #0077e6, #00d4ff);
+}
+
+.case-studies .card-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.case-studies .card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,119,230,0.12), rgba(0,212,255,0.12));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.case-studies .card-title {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.case-studies .card-challenge,
+.case-studies .card-solution {
+  color: #32414a;
+  font-size: 0.95rem;
+}
+
+.case-studies .card-benefits {
+  margin: 12px 0;
+  padding-left: 18px;
+}
+
+.case-studies .card-benefits li {
+  margin-bottom: 8px;
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #23303a;
+}
+
+.case-studies .card-benefits .check {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #e6fbff;
+  color: #0077e6;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.case-studies .tech-badges {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.case-studies .tech-badge {
+  background: rgba(0,119,230,0.08);
+  color: #005b9a;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.case-studies .card-action {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.case-studies .case-cta {
+  background: linear-gradient(135deg,#0077e6,#00d4ff);
+  color: #06121a;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .case-studies .card-header { gap: 10px; }
+  .case-studies .card-icon { width: 48px; height: 48px; }
+}
+
 /* Grid */
 
 .services-grid {

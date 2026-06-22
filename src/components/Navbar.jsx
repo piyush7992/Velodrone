@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <header>
@@ -5,14 +7,15 @@ function Navbar() {
         <h2>Velodrone</h2>
 
         <ul>
-          <li><a href="/products">Products</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/products">Products</Link></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#industries">Industries</a></li>
-          <li><a href="#about">Why Us</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/knowledge">Knowledge Center</Link></li>
         </ul>
 
-        <button>Get Quote</button>
+        <Link className="hero-btn" to="/contact">Get Quote</Link>
       </nav>
     </header>
   );

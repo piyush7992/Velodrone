@@ -1,4 +1,5 @@
 import "../Services.css";
+import { Link } from "react-router-dom";
 const services = [
   {
     slug: "survey-drone",
@@ -101,16 +102,16 @@ function Services() {
               )}
 
               <div className="service-actions">
-                <a className="service-btn" href={item.slug ? `/${item.slug}` : '#'}>
+                <Link className="service-btn" to={item.slug ? `/${item.slug}` : '#'}>
                   Learn More →
-                </a>
+                </Link>
 
-                <a
+                <Link
                   className="spec-btn"
-                  href={`/contact?service=${item.slug || encodeURIComponent(item.title)}`}
+                  to={`/contact?service=${item.slug || encodeURIComponent(item.title)}`}
                 >
                   Request Specifications
-                </a>
+                </Link>
               </div>
             </div>
           ))}

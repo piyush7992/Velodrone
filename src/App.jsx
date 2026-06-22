@@ -7,8 +7,11 @@ import Products from "./pages/Products";
 import SurveyDrone from "./pages/SurveyDrone";
 import CounterDrone from "./pages/CounterDrone";
 import SurveillanceDrone from "./pages/SurveillanceDrone";
+import Knowledge from "./pages/Knowledge";
+import Article from "./pages/Article";
 import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import CaseStudies from "./components/CaseStudies";
 
 const FAQ = lazy(() => import("./components/Faq"));
 const Industries = lazy(() => import("./components/Industries"));
@@ -61,6 +64,9 @@ function App() {
           <Route path="/survey-drone" element={<SurveyDrone />} />
           <Route path="/counter-drone" element={<CounterDrone />} />
           <Route path="/surveillance-drone" element={<SurveillanceDrone />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/knowledge" element={<Knowledge />} />
+          <Route path="/knowledge/:slug" element={<Article />} />
         </Routes>
 
         <Footer />

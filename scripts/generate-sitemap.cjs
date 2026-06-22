@@ -10,6 +10,11 @@ const urls = [
   { loc: 'https://velodrone.in/#faq', changefreq: 'monthly', priority: '0.6' }
 ];
 
+// Knowledge Center and blog posts
+urls.push({ loc: 'https://velodrone.in/knowledge', changefreq: 'weekly', priority: '0.8' });
+urls.push({ loc: 'https://velodrone.in/knowledge/why-counter-drone-matters', changefreq: 'monthly', priority: '0.7' });
+urls.push({ loc: 'https://velodrone.in/knowledge/survey-drone-best-practices', changefreq: 'monthly', priority: '0.7' });
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n` +
   `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   urls

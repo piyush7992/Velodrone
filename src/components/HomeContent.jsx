@@ -1,4 +1,5 @@
 import "../Services.css";
+import CaseStudies from "./CaseStudies";
 
 function HomeContent() {
   return (
@@ -77,6 +78,8 @@ function HomeContent() {
           Event security teams use our surveillance and mitigation suites to
           protect attendees at large gatherings while minimising disruption.
         </p>
+
+        <CaseStudies />
 
         <h3>Operational Support & Compliance</h3>
 
